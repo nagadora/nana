@@ -1,0 +1,88 @@
+/* styles/layout.module.css */
+/* 作成日時: 2025年2月8日 13:20 JST (参照: https://www.nict.go.jp/JST/JST5.html) */
+
+/* ヘッダー */
+.header {
+  background-color: #fff0f5; /* ラベンダーブラッシュ */
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid #ff99cc; /* パステルピンク */
+}
+.logo {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.navList li a {
+  text-decoration: none;
+  color: #ff99cc;
+}
+
+/* メインエリア */
+.main {
+  padding: 1rem;
+}
+
+/* フッター */
+.footer {
+  background-color: #ffe6e6; /* ライトピンク */
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333333;
+  border-top: 2px solid #ff99cc;
+}
+
+/* 3カラムレイアウト */
+.threeColumnLayout {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.column {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.left {
+  background-color: #ffecf0; /* パステルピンク */
+}
+.center {
+  background-color: #e0f7fa; /* パステルブルー */
+}
+.right {
+  background-color: #e8f5e9; /* パステルグリーン */
+  /* 右カラム全体は上部と下部に分割されるので、個別のスタイルは下記で定義 */
+}
+
+/* 右カラム上部：追加サイドバー */
+.rightTop {
+  margin-bottom: 1.5rem; /* 上部と下部の間にスペース */
+  padding: 1rem;
+  background-color: #ffe0f0; /* やわらかいピンク（任意の色に変更可） */
+  border-radius: 10px;
+}
+
+/* 右カラム下部：ワイドメニュー */
+.rightBottom {
+  padding: 1rem;
+  background-color: #e8f5e9; /* 右カラム全体の色に合わせる */
+  border-radius: 10px;
+}
+
+/* レスポンシブ対応：768px以下は縦並び */
+@media (max-width: 768px) {
+  .threeColumnLayout {
+    flex-direction: column;
+  }
+}

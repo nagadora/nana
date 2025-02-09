@@ -1,0 +1,34 @@
+/* styles/blogPost.module.css */
+.blogPost {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 1rem;
+}
+.blogPost h2 {
+  font-size: 1.5rem;
+  color: #ff66a3;
+  margin-bottom: 0.5rem;
+}
+.blogPost p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+.pubDate {
+  font-size: 0.8rem;
+  color: #999999;
+  margin-top: 0.5rem;
+}
+.buttonCute {
+  display: inline-block;
+  background-color: #ff66a3;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+.buttonCute:hover {
+  background-color: #333333;
+}

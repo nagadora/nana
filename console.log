@@ -1,0 +1,25 @@
+import { useEffect } from "react";
+
+const fetchBlogs = async () => {
+  console.log("🔍 fetchBlogs が実行された！"); // ← ここが出るか確認
+
+  console.log("APIキー:", process.env.NEXT_PUBLIC_MICROCMS_API_KEY); // ← APIキーを確認
+
+  const res = await fetch("https://nene.microcms.io/api/v1/blogs", {
+    headers: { "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_MICROCMS_API_KEY },
+  });
+
+  const data = await res.json();
+  console.log("🛠 APIレスポンス:", data); // ← ここでAPIレスポンスを表示！
+
+  return data;
+};
+
+// コンポーネントの中で fetchBlogs を実行
+export default function Home() {
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  return <h1>記事一覧</h1>;
+}

@@ -1,25 +1,24 @@
+import { fetchBlogs } from "../lib/api"; // ← `lib/api.js` から関数をインポート！
+
 export async function getStaticProps() {
-  const API_ENDPOINT = `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_ID}.microcms.io/api/v1/posts`
-  const res = await fetch(API_ENDPOINT, {
-    headers: { 'X-API-KEY': process.env.NEXT_PUBLIC_MICROCMS_API_KEY }
-  })
-  const data = await res.json()
+  const blogs = await fetchBlogs();
+  console.log("?? getStaticProps の blogs:", blogs);
   return {
-    props: {
-      posts: data.contents || []
-    }
+    props: { blogs }, // `blogs` に統一！
   };
 }
 
-// ここが抜けていた！Reactコンポーネントを追加
-export default function Home({ posts }) {
+// React コンポーネント
+export default function Home({ blogs }) {
   return (
     <div>
       <h1>記事一覧</h1>
       <ul>
-        {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
+        {blogs.length > 0 ? (
+          blogs.map((blog) => <li key={blog.id}>{blog.title}</li>)
+        ) : (
+          <li>記事がありません</li>
+        )}
       </ul>
     </div>
   );
